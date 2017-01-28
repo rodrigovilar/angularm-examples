@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AngularmModule } from 'angularm';
+import { AngularmModule, PipesModule } from 'angularm';
 
 import { AppComponent } from './app.component';
 
@@ -15,7 +15,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularmModule.forRoot()
+    AngularmModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
