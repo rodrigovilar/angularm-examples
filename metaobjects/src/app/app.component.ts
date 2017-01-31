@@ -16,7 +16,6 @@ export class AppComponent extends EntityTypesComponent {
   ) {
     super();
     describeDomain(this.angularm);
-    this.entityTypes = this.angularm.listEntityTypes();
   }
 
 }

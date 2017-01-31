@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     AngularmModule,
-    PipesModule
+    PipesModule //TO DO move pipes to AngularmModule
   ],
   providers: [],
   bootstrap: [AppComponent]
