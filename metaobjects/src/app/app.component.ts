@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AngularmService, EntityTypesComponent } from 'angularm';
 
 import { describeDomain } from './entities';
+import { defineRules } from './rules';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent extends EntityTypesComponent {
   ) {
     super();
     describeDomain(this.angularm);
+    defineRules(this.angularm);
   }
 
 }
