@@ -11,7 +11,8 @@ import {
   ListEntitiesComponent, ShowEntityComponent, NewEntityComponent,
   EditEntityComponent, HomeComponent, PageNotFoundComponent } from 'angularm';
 import { EntityLineComponent, CreateEntityComponent, FormLineComponent,
-  EditEntityFormComponent, EditFormLineComponent } from 'angularm';
+  EditEntityFormComponent, EditFormLineComponent, EntityDetailsComponent, 
+  ShowLineComponent, ListingTableComponent } from 'angularm';
 
 import { AppComponent } from './app.component';
 
@@ -39,7 +40,10 @@ const appRoutes: Routes = [
     CreateEntityComponent,
     FormLineComponent,
     EditEntityFormComponent,
-    EditFormLineComponent
+    EditFormLineComponent,
+    EntityDetailsComponent, 
+    ShowLineComponent,
+    ListingTableComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +64,10 @@ const appRoutes: Routes = [
     CreateEntityComponent,
     FormLineComponent,
     EditEntityFormComponent,
-    EditFormLineComponent
+    EditFormLineComponent,
+    EntityDetailsComponent, 
+    ShowLineComponent,
+    ListingTableComponent
   ],
   bootstrap: [AppComponent]
 })
