@@ -10,7 +10,8 @@ import { AngularmModule, FlashMessageComponent, FlashMessageService } from 'angu
 import {
   ListEntitiesComponent, ShowEntityComponent, NewEntityComponent,
   EditEntityComponent, HomeComponent, PageNotFoundComponent } from 'angularm';
-import { EntityLineComponent, CreateEntityComponent, FormLineComponent } from 'angularm';
+import { EntityLineComponent, CreateEntityComponent, FormLineComponent,
+  EditEntityFormComponent, EditFormLineComponent } from 'angularm';
 
 import { AppComponent } from './app.component';
 
@@ -36,7 +37,9 @@ const appRoutes: Routes = [
     EditEntityComponent,
     EntityLineComponent,
     CreateEntityComponent,
-    FormLineComponent
+    FormLineComponent,
+    EditEntityFormComponent,
+    EditFormLineComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,9 @@ const appRoutes: Routes = [
   entryComponents: [
     EntityLineComponent,
     CreateEntityComponent,
-    FormLineComponent
+    FormLineComponent,
+    EditEntityFormComponent,
+    EditFormLineComponent
   ],
   bootstrap: [AppComponent]
 })
