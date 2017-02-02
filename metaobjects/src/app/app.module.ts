@@ -5,23 +5,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MetaModule } from 'angularm';
-import { PipesModule } from 'angularm';
+import { MetaModule, PipesModule } from 'angularm';
 import { AngularmModule, FlashMessageComponent, FlashMessageService } from 'angularm';
-import { ListEntitiesComponent } from 'angularm';
-import { ShowEntityComponent } from 'angularm';
-import { CreateEntityComponent } from 'angularm';
-import { EditEntityComponent } from 'angularm';
-import { HomeComponent } from 'angularm';
-import { PageNotFoundComponent } from 'angularm';
-import { EntityLineComponent } from 'angularm';
+import {
+  ListEntitiesComponent, ShowEntityComponent, NewEntityComponent,
+  EditEntityComponent, HomeComponent, PageNotFoundComponent } from 'angularm';
+import { EntityLineComponent, CreateEntityComponent } from 'angularm';
 
 import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: ':entitytypename', component: ListEntitiesComponent },
-  { path: ':entitytypename/new', component: CreateEntityComponent },
+  { path: ':entitytypename/new', component: NewEntityComponent },
   { path: ':entitytypename/:key', component: ShowEntityComponent },
   { path: ':entitytypename/:key/edit', component: EditEntityComponent },
   { path: '**', component: PageNotFoundComponent }
@@ -36,9 +32,10 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     ListEntitiesComponent,
     ShowEntityComponent,
-    CreateEntityComponent,
+    NewEntityComponent,
     EditEntityComponent,
-    EntityLineComponent
+    EntityLineComponent,
+    CreateEntityComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +52,8 @@ const appRoutes: Routes = [
     FlashMessageService
   ],
   entryComponents: [
-    EntityLineComponent
+    EntityLineComponent,
+    CreateEntityComponent
   ],
   bootstrap: [AppComponent]
 })
