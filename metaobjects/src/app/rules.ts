@@ -1,7 +1,7 @@
 import {
-    AngularmService, EntityLineComponent, CreateEntityComponent
+    AngularmService, EntityLineComponent, CreateEntityComponent,
 //    ThComponent,
-    // FormLineComponent,
+    FormLineComponent
     // EditFormLineComponent,
     // ShowLineComponent,
     // TdComponent
@@ -10,8 +10,8 @@ import {
 export let defineRules = (angularm: AngularmService) => {
     angularm
         // .dptr('table_head', ThComponent)
-        // .ptr('form_line', '*', 'matricula', null, FormLineComponent, { inputType: 'number' })
-        // .dptr('form_line', FormLineComponent, { inputType: 'text' })
+        .ptr('form_line', '*', 'code', null, FormLineComponent, { inputType: 'number' })
+        .dptr('form_line', FormLineComponent, { inputType: 'text' })
         // .dpr('show_line', ShowLineComponent)
         .der('table_line', EntityLineComponent)
         .detr('create_form', CreateEntityComponent);
