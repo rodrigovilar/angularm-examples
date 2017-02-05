@@ -1,0 +1,4 @@
+<ul>
+  <li *ngFor="let entityType of entityTypes" (click)="select(entityType)">{{entityType.singular}}</li>
+</ul>
+<app-listing-table *ngIf="selectedEntityType" [entityType]="selectedEntityType"></app-listing-table>
