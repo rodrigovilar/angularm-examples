@@ -1,0 +1,8 @@
+<table>
+  <tr>
+    <th *ngFor="let propertyType of entityType.propertyTypes">{{propertyType.name}}</th>
+  </tr>
+  <tr *ngFor="let entity of entities">
+    <td *ngFor="let property of entity.mountProperties()">{{property.value}}</td>
+  </tr>
+</table>
