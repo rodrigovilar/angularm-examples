@@ -9,23 +9,22 @@ import { AngularmService, EntityComponent } from 'angularm';
 })
 export class EntityTableLineComponent extends EntityComponent {
 
-    constructor(
-            private angularm: AngularmService) {
-        super();
-    }
+    constructor(angularm: AngularmService) {
+        super(angularm);
+      }
 
     show() {
-        this.angularm.fireEvent('show', this.entity, {});
+        super.fireEvent('show', {});
         return false;
     }
 
     edit() {
-        this.angularm.fireEvent('editForm', this.entity, {});
+        super.fireEvent('editForm', {});
         return false;
     }
 
     destroy() {
-        this.angularm.fireEvent('destroy', this.entity, {});
+        super.fireEvent('destroy', {});
         return false;
     }
 }

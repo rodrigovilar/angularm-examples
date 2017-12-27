@@ -9,19 +9,17 @@ import { AngularmService, EntityComponent } from 'angularm';
 })
 export class EntityPanelComponent extends EntityComponent {
 
-  constructor(
-    private angularm: AngularmService
-  ) {
-    super();
+  constructor(angularm: AngularmService) {
+    super(angularm);
   }
 
   back() {
-    this.angularm.fireEvent('list', this.entity, {});
+    super.fireEvent('list', {});
     return false;
   }
 
   edit() {
-    this.angularm.fireEvent('editForm', this.entity, {});
+    super.fireEvent('editForm', {});
     return false;
   }
 

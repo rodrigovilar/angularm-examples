@@ -9,10 +9,8 @@ import { AngularmService, EntityTypeComponent, AngularmEvent } from 'angularm';
 })
 export class EntitiesTableComponent extends EntityTypeComponent implements OnInit {
 
-  constructor(
-    private angularm: AngularmService
-  ) {
-    super();
+  constructor(angularm: AngularmService) {
+    super(angularm);
   }
 
   ngOnInit() {
@@ -20,7 +18,7 @@ export class EntitiesTableComponent extends EntityTypeComponent implements OnIni
 
     this.angularm.eventFired$
       .subscribe( (event: AngularmEvent) => {
-          if (event.event === 'destroy') {
+          if (event.name === 'destroy') {
             this.reload();
           }
         }
@@ -29,11 +27,11 @@ export class EntitiesTableComponent extends EntityTypeComponent implements OnIni
 
   reload() {
     this.entities = [];
-    this.angularm.fireEvent('listAll', this.entityType, this.entities);
+    super.fireEvent('listAll', this.entities);
   }
 
   back() {
-    this.angularm.fireEvent('exit', this.entityType, {});
+    super.fireEvent('exit', {});
     return false;
   }
 

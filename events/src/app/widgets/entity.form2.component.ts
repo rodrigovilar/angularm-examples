@@ -14,28 +14,28 @@ export class EntityForm2Component extends EntityComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private angularm: AngularmService
-  ) {
-    super();
-  }
+    angularm: AngularmService
+        ) {
+    super(angularm);
+    }
 
   ngOnInit() {
     const fbConf: any = {};
-    this.angularm.fireEvent('populateEditForm', this.entity, fbConf);
+    super.fireEvent('populateEditForm', fbConf);
     this.myForm = this.fb.group(fbConf);
 }
 
   onSubmit(form: any): void {
-    this.angularm.fireEvent('edit', this.entity, form);
+    super.fireEvent('edit', form);
   }
 
   show() {
-    this.angularm.fireEvent('show', this.entity, {});
+    super.fireEvent('show', {});
     return false;
   }
 
   back() {
-    this.angularm.fireEvent('list', this.entity, {});
+    super.fireEvent('list', {});
     return false;
   }
 

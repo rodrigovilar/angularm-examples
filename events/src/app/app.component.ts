@@ -15,56 +15,56 @@ export class AppComponent extends EntityTypesComponent {
 
   constructor(
     private router: Router,
-    private angularm: AngularmService,
+    angularm: AngularmService,
     private flash: FlashMessageService
-  ) {
-    super();
+      ) {
+    super(angularm);
     describeDomain(this.angularm);
     defineRules(this.angularm);
 
     this.angularm.eventFired$
       .subscribe( (event: AngularmEvent) => {
-          if (event.event === 'create') {
+          if (event.name === 'create') {
             this.create(event);
           }
 
-          if (event.event === 'populateCreateForm') {
+          if (event.name === 'populateCreateForm') {
             this.populateCreateForm(event);
           }
 
-          if (event.event === 'exit') {
+          if (event.name === 'exit') {
             this.exit(event);
           }
 
-          if (event.event === 'listAll') {
+          if (event.name === 'listAll') {
             this.listAll(event);
           }
 
-          if (event.event === 'list') {
+          if (event.name === 'list') {
             this.list(event);
           }
 
-          if (event.event === 'newForm') {
+          if (event.name === 'newForm') {
             this.newForm(event);
           }
 
-          if (event.event === 'populateEditForm') {
+          if (event.name === 'populateEditForm') {
             this.populateEditForm(event);
           }
 
-          if (event.event === 'editForm') {
+          if (event.name === 'editForm') {
             this.editForm(event);
           }
 
-          if (event.event === 'show') {
+          if (event.name === 'show') {
             this.show(event);
           }
 
-          if (event.event === 'edit') {
+          if (event.name === 'edit') {
             this.edit(event);
           }
 
-          if (event.event === 'destroy') {
+          if (event.name === 'destroy') {
             this.destroy(event);
           }
         }

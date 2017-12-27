@@ -14,9 +14,9 @@ export class EntityFormComponent extends EntityTypeComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private angularm: AngularmService
+    angularm: AngularmService
   ) {
-    super();
+    super(angularm);
   }
 
   ngOnInit() {
