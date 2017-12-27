@@ -297,9 +297,9 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angularm@^0.4.21:
-  version "0.4.21"
-  resolved "https://registry.yarnpkg.com/angularm/-/angularm-0.4.21.tgz#ee2383045091d3a63987fa1347f4fc8412eee428"
+angularm@^0.4.22:
+  version "0.4.22"
+  resolved "https://registry.yarnpkg.com/angularm/-/angularm-0.4.22.tgz#9b5cc805b41350f9e7749602ec3681dca5f9a0c8"
   dependencies:
     tsc "^1.20150623.0"
 
