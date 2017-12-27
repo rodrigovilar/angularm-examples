@@ -25,7 +25,7 @@ export class EntityFormComponent extends EntityTypeComponent implements OnInit {
     this.myForm = this.fb.group(fbConf);
   }
 
-  onSubmit(form: any): void {
-    this.angularm.fireEvent('create', this.entityType, form);
+  onSubmit(): void {
+    this.angularm.fireEvent('create', this.entityType, this.myForm.value);
   }
 }

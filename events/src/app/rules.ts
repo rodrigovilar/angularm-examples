@@ -9,11 +9,12 @@ import { EntitiesTableComponent } from './widgets/entities.table.component';
 import { EntityTableLineComponent } from './widgets/entity.table.line.component';
 import { EntityFormComponent } from './widgets/entity.form.component';
 import { EntityForm2Component } from './widgets/entity.form2.component';
+import { PropertyFormLineComponent } from './widgets/property.form.line.component';
 
 export let defineRules = (angularm: AngularmService) => {
     angularm
         .ptr('form_line', '*', 'code', null, FormLineComponent, { inputType: 'number' })
-        .dptr('form_line', FormLineComponent, { inputType: 'text' })
+        .dptr('form_line', PropertyFormLineComponent, { inputType: 'text' })
         .dpr('show_line', ShowLineComponent)
         .detr('list_entities', EntitiesTableComponent)
         .der('table_line', EntityTableLineComponent)

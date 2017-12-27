@@ -25,8 +25,8 @@ export class EntityForm2Component extends EntityComponent implements OnInit {
     this.myForm = this.fb.group(fbConf);
 }
 
-  onSubmit(form: any): void {
-    super.fireEvent('edit', form);
+  onSubmit(): void {
+    super.fireEvent('edit', this.myForm.value);
   }
 
   show() {
