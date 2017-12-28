@@ -15,14 +15,7 @@ export class EntitiesTableComponent extends EntityTypeComponent implements OnIni
 
   ngOnInit() {
     this.reload();
-
-    this.angularm.eventFired$
-      .subscribe( (event: AngularmEvent) => {
-          if (event.name === 'destroy') {
-            this.reload();
-          }
-        }
-      );
+    this.angularm.subscribeEvent('destroy', (event) => this.reload());
   }
 
   reload() {

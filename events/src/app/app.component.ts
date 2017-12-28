@@ -22,67 +22,31 @@ export class AppComponent extends EntityTypesComponent {
     describeDomain(this.angularm);
     defineRules(this.angularm);
 
-    this.angularm.eventFired$
-      .subscribe( (event: AngularmEvent) => {
-          if (event.name === 'create') {
-            this.create(event);
-          }
-
-          if (event.name === 'populateCreateForm') {
-            this.populateCreateForm(event);
-          }
-
-          if (event.name === 'exit') {
-            this.exit(event);
-          }
-
-          if (event.name === 'listAll') {
-            this.listAll(event);
-          }
-
-          if (event.name === 'list') {
-            this.list(event);
-          }
-
-          if (event.name === 'newForm') {
-            this.newForm(event);
-          }
-
-          if (event.name === 'populateEditForm') {
-            this.populateEditForm(event);
-          }
-
-          if (event.name === 'editForm') {
-            this.editForm(event);
-          }
-
-          if (event.name === 'show') {
-            this.show(event);
-          }
-
-          if (event.name === 'edit') {
-            this.edit(event);
-          }
-
-          if (event.name === 'destroy') {
-            this.destroy(event);
-          }
-        }
-      );
+    this.angularm.subscribeEvent('createSubmit', (event) => this.createSubmit(event));
+    this.angularm.subscribeEvent('createInit', (event) => this.populateCreateForm(event));
+    this.angularm.subscribeEvent('exit', (event) => this.exit(event));
+    this.angularm.subscribeEvent('listAll', (event) => this.listAll(event));
+    this.angularm.subscribeEvent('list', (event) => this.list(event));
+    this.angularm.subscribeEvent('newForm', (event) => this.newForm(event));
+    this.angularm.subscribeEvent('editInit', (event) => this.populateEditForm(event));
+    this.angularm.subscribeEvent('editForm', (event) => this.editForm(event));
+    this.angularm.subscribeEvent('show', (event) => this.show(event));
+    this.angularm.subscribeEvent('editSubmit', (event) => this.editSubmit(event));
+    this.angularm.subscribeEvent('destroy', (event) => this.destroy(event));
   }
 
   private populateCreateForm(event: AngularmEvent) {
-    event.context.properties.forEach( (propertyType: PropertyType) => {
+    event.context.entityType.properties.forEach( (propertyType: PropertyType) => {
       event.data[propertyType.name] = ['']; // TO DO Add validators here according to metadata
     });
   }
 
-  private create(event: AngularmEvent) {
-    this.angularm.create(event.context.singular, event.data);
-    const entityTypeName = TitleCase.toTitleCase(event.context.singular);
+  private createSubmit(event: AngularmEvent) {
+    this.angularm.create(event.context.entityType.singular, event.data);
+    const entityTypeName = TitleCase.toTitleCase(event.context.entityType.singular);
     this.flash.changeMessage(`${entityTypeName} was successfully created.`);
-    const idPropertyType: string = event.context.tags.id;
-    this.router.navigate([event.context.plural, event.data[idPropertyType] ]);
+    const idPropertyType: string = event.context.entityType.tags.id;
+    this.router.navigate([event.context.entityType.plural, event.data[idPropertyType] ]);
   }
 
   private exit(event: AngularmEvent) {
@@ -124,14 +88,14 @@ export class AppComponent extends EntityTypesComponent {
     this.router.navigate([event.context.entityType.plural, event.context.key]);
   }
 
-  private edit (event: AngularmEvent) {
+  private editSubmit(event: AngularmEvent) {
     this.angularm.edit(event.context.entityType.singular, event.context.key, event.data);
     const entityTypeName = TitleCase.toTitleCase(event.context.entityType.singular);
     this.flash.changeMessage(`${entityTypeName} was successfully updated.`);
     this.router.navigate([event.context.entityType.plural, event.data[event.context.entityType.tags.id]]);
   }
 
-  private destroy (event: AngularmEvent) {
+  private destroy(event: AngularmEvent) {
     if (confirm('Are you sure?')) {
       this.angularm.delete(event.context.entityType.singular, event.context.key);
       const entityTypeName = TitleCase.toTitleCase(event.context.entityType.singular);

@@ -20,9 +20,7 @@ import { EntityFormComponent } from './widgets/entity.form.component';
 import { EntitiesTableComponent } from './widgets/entities.table.component';
 import { EntityTableLineComponent } from './widgets/entity.table.line.component';
 import { EntityPanelComponent } from './widgets/entity.panel.component';
-import { EntityForm2Component } from './widgets/entity.form2.component';
 import { PropertyFormLineComponent } from './widgets/property.form.line.component';
-import { PropertyFormLine2Component } from './widgets/property.form.line2.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,9 +38,7 @@ const appRoutes: Routes = [
     EntitiesTableComponent,
     EntityTableLineComponent,
     EntityPanelComponent,
-    EntityForm2Component,
-    PropertyFormLineComponent,
-    PropertyFormLine2Component
+    PropertyFormLineComponent
   ],
   imports: [
     CommonModule,
@@ -72,9 +68,7 @@ const appRoutes: Routes = [
     EntitiesTableComponent,
     EntityTableLineComponent,
     EntityPanelComponent,
-    EntityForm2Component,
-    PropertyFormLineComponent,
-    PropertyFormLine2Component
+    PropertyFormLineComponent
   ],
   bootstrap: [AppComponent]
 })
